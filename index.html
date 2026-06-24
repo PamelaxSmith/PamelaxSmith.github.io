@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela Smith | Writer & Poet</title>
+    <style>
+        /* Minimalist Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system-ui-serif, Georgia, 'Times New Roman', serif; 
+            line-height: 1.8;
+            color: #2c2c2c;
+            background-color: #fafafa; 
+            padding: 0 2rem;
+            letter-spacing: 0.01em;
+        }
+
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 6rem 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            margin-bottom: 7rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.8rem; 
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 1.8rem;
+            color: #111;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #767676;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #111;
+        }
+
+        /* Sections General */
+        section {
+            margin-bottom: 7rem;
+            scroll-margin-top: 3rem;
+        }
+
+        h2 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1.25rem; 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #a3a3a3; 
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #eaeaea; 
+            padding-bottom: 0.6rem;
+            font-weight: 600; 
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #333;
+            text-align: left; 
+        }
+
+        /* Bio Split Grid */
+        .bio-wrapper {
+            display: flex;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+
+        .bio-portrait {
+            flex: 1;
+            max-width: 40%;
+        }
+
+        .bio-portrait img {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+            filter: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .bio-portrait img:hover {
+            filter: none;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .bio-text {
+            flex: 1.3;
+        }
+
+        /* Alternating Work Gallery Layout with Uniform Image Standardizing */
+        .work-item {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            margin-bottom: 6rem;
+        }
+
+        .work-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .work-image {
+            flex: 1;
+            max-width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .work-image img {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 3 / 4; 
+            object-fit: cover;
+            display: block;
+            filter: grayscale(30%);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            transition: all 0.4s ease;
+        }
+
+        .work-image img:hover {
+            filter: grayscale(0%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .work-text {
+            flex: 1.3;
+        }
+
+        .work-title {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #111;
+            margin-bottom: 0.3rem;
+            font-weight: 400;
+        }
+
+        .work-meta {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8a8a8a;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Minimalist Reading Link */
+        .read-link {
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid #111;
+            padding-bottom: 3px;
+            margin-top: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-link:hover {
+            color: #8a8a8a;
+            border-color: #8a8a8a;
+            padding-left: 5px;
+        }
+
+        /* Complete & Functioning Mailer Integration Styles */
+        .newsletter-container {
+            border-top: 1px solid #eaeaea;
+            padding-top: 6rem;
+            text-align: center;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        .newsletter-container h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1.25rem; 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #a3a3a3; 
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .newsletter-container p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0; 
+            border-bottom: 1px solid #111; 
+            padding-bottom: 0.5rem;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 0.5rem 0.5rem 0.5rem 0;
+            border: none;
+            background: transparent;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            outline: none;
+            color: #111;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #b3b3b3;
+            font-style: italic;
+        }
+
+        .newsletter-form button {
+            background: transparent;
+            color: #111;
+            border: none;
+            padding: 0 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            color: #8a8a8a;
+        }
+
+        /* Contact & Social Links Styling */
+        .contact-line {
+            margin-top: 2.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem; 
+            color: #2c2c2c;
+            line-height: 1.8;
+        }
+
+        .contact-email-block {
+            display: block; 
+            margin-top: 0.4rem;
+            font-size: 1rem; 
+        }
+
+        .social-block {
+            display: block;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #767676;
+        }
+
+        /* FIXED: Changed to display block so they format cleanly one over the other */
+        .social-block span {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Shared Anchor Styling for Links in Bio Text Container */
+        .bio-text a {
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1.5px solid #111;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .bio-text a:hover {
+            color: #767676;
+            border-color: #767676;
+        }
+
+        /* Small, grey, explicitly un-bolded, centered footer */
+        footer {
+            margin-top: 7rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer p {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem !important;
+            font-weight: 400 !important;
+            color: #b3b3b3 !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center !important;
+            margin: 0;
+        }
+
+        /* Mobile Fluidity Optimization */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 1.5rem;
+            }
+            .bio-wrapper, .work-item, .work-item:nth-child(even) {
+                flex-direction: column;
+                gap: 2.5rem;
+                margin-bottom: 5rem;
+            }
+            .bio-portrait, .work-image {
+                max-width: 100%;
+                width: 100%;
+            }
+            .bio-portrait img, .work-image img {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Pamela Smith</h1>
+            <nav>
+                <ul>
+                    <li><a href="#bio">Bio</a></li>
+                    <li><a href="#style">Style</a></li>
+                    <li><a href="#published-work">Published Work</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="bio">
+            <h2>Bio</h2>
+            <div class="bio-wrapper">
+                <div class="bio-portrait">
+                    <img src="images/bio.jpg" alt="Pamela Smith Portrait">
+                </div>
+                <div class="bio-text">
+                    <p>Pamela Smith is a Dublin-based writer who transforms the ordinary into highly compressed fiction. Her work explores the quiet complexities of inner worlds, disorders, and transformation.</p>
+                    <p>When she isn't writing, she can be found lingering in local cafes, sipping a cappuccino, enjoying a cinnamon roll, and getting lost in her thoughts.</p>
+                    
+                    <span class="social-block">
+                        <span>Twitter: <a href="https://twitter.com/Smith9374" target="_blank">@Smith9374</a></span>
+                        <span>Instagram: <a href="https://instagram.com/smith_pamela74" target="_blank">@smith_pamela74</a></span>
+                    </span>
+
+                    <div class="contact-line">
+                        For readings, panels, or media inquiries, contact:
+                        <span class="contact-email-block">
+                            <a href="mailto:pamandsam2020@gmail.com">pamandsam2020@gmail.com</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="style">
+            <h2>Style</h2>
+            <div class="style-content">
+                <p>Characterised by a penetrating density and intense observational power, Pamela’s prose cuts beneath the surface of the ordinary to unleash an acute, highly concentrated psychological friction.</p>
+                <p>Her approach fully submerges into the raw turbulence of the mind, fusing the complexity of internal disorders with a visceral, multi-layered narrative voice that refuses to hold back.</p>
+            </div>
+        </section>
+
+        <section id="published-work">
+            <h2>Published Work</h2>
+            
+            <!-- Work 1 -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/papanca.png" alt="Papanca representation">
+                </div>
+                <div class="work-text">
+                    <div class="work-title">Papanca</div>
+                    <div class="work-meta">Tint Journal — Issue Spring '26</div>
+                    <p>A midnight scrubbing routine under suffocating bleach fumes is broken when a sharp tap at the window invites a silent intruder into a fracturing inner world.</p>
+                    <a href="https://tintjournal.com/flash-fiction/papanca" target="_blank" class="read-link">Read at Tint Journal</a>
+                </div>
+            </div>
+
+            <!-- Work 2 -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/six.png" alt="Six Seconds Taught Me Math representation">
+                </div>
+                <div class="work-text">
+                    <div class="work-title">Six Seconds Taught Me Math</div>
+                    <div class="work-meta">The Blood Pudding — May 2026</div>
+                    <p>A tragic memory of a sister choking triggers a compulsive, hyper-controlled eating ritual where survival is measured in counts of six.</p>
+                    <a href="https://thebloodpudding.com/fiction/flash-fiction/six-seconds-taught-me-math/" target="_blank" class="read-link">Read at The Blood Pudding</a>
+                </div>
+            </div>
+
+            <!-- Work 3 -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/tap.png" alt="Static Noise representation">
+                </div>
+                <div class="work-text">
+                    <div class="work-title">Static Noise</div>
+                    <div class="work-meta">Short Fiction</div>
+                    <p>An immersive exploration of psychological interference and internal static, tracking the thin, turbulent line between internal disorder and the struggle for clarity.</p>
+                    <a href="#" class="read-link">Read Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-container">
+            <h3>Mailing List</h3>
+            <p>Subscribe to receive new poems, story announcements, and updates on upcoming readings.</p>
+            
+            <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="6393e777-2759-42ce-8d18-0aec7cdde0f0">
+                <input type="hidden" name="subject" value="New Subscriber Alert - PamelaxSmith.github.io">
+                <input type="hidden" name="message" value="A new reader has signed up for your mailing list.">
+                <input type="hidden" name="redirect" value="https://pamelaxsmith.github.io/">
+                <input type="checkbox" name="botcheck" style="display: none;">
+
+                <input type="email" name="email" placeholder="Your email address" required>
+                <button type="submit">Join</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 PAMELA SMITH. ALL RIGHTS RESERVED.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
