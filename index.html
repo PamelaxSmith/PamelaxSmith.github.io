@@ -106,8 +106,8 @@
 
         .bio-portrait img {
             width: 100%;
-            max-width: 320px;
-            aspect-ratio: 3 / 4;
+            max-width: 300px;
+            height: 380px;
             object-fit: cover;
             display: block;
             filter: none; 
@@ -125,7 +125,7 @@
             flex: 1.3;
         }
 
-        /* Alternating Work Gallery Layout with Uniform Image Standardizing */
+        /* Work Gallery Layout */
         .work-item {
             display: flex;
             align-items: center;
@@ -138,21 +138,25 @@
         }
 
         .work-image {
-            flex: 1;
-            max-width: 40%;
+            flex: 0 0 300px;
+            width: 300px;
+            height: 380px;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
+        /* Strict equal dimensions across all work images */
         .work-image img {
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 3 / 4; 
-            object-fit: cover;
+            width: 300px !important;
+            height: 380px !important;
+            object-fit: cover !important;
+            object-position: center;
             display: block;
             filter: grayscale(30%);
             box-shadow: 0 8px 25px rgba(0,0,0,0.04);
             transition: all 0.4s ease;
+            border-radius: 2px;
         }
 
         .work-image img:hover {
@@ -162,7 +166,7 @@
         }
 
         .work-text {
-            flex: 1.3;
+            flex: 1;
         }
 
         .work-title {
@@ -203,7 +207,7 @@
             padding-left: 5px;
         }
 
-        /* Complete & Functioning Mailer Integration Styles */
+        /* Newsletter Styles */
         .newsletter-container {
             border-top: 1px solid #eaeaea;
             padding-top: 6rem;
@@ -293,13 +297,11 @@
             color: #767676;
         }
 
-        /* FIXED: Changed to display block so they format cleanly one over the other */
         .social-block span {
             display: block;
             margin-bottom: 0.3rem;
         }
 
-        /* Shared Anchor Styling for Links in Bio Text Container */
         .bio-text a {
             color: #111;
             text-decoration: none;
@@ -312,7 +314,6 @@
             border-color: #767676;
         }
 
-        /* Small, grey, explicitly un-bolded, centered footer */
         footer {
             margin-top: 7rem;
             text-align: center;
@@ -330,7 +331,7 @@
             margin: 0;
         }
 
-        /* Mobile Fluidity Optimization */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
             body {
                 padding: 0 1.5rem;
@@ -340,12 +341,18 @@
                 gap: 2.5rem;
                 margin-bottom: 5rem;
             }
-            .bio-portrait, .work-image {
+            .bio-portrait {
                 max-width: 100%;
                 width: 100%;
             }
-            .bio-portrait img, .work-image img {
-                max-width: 100%;
+            .work-image {
+                width: 100%;
+                height: auto;
+            }
+            .work-image img {
+                width: 100% !important;
+                max-width: 300px;
+                height: 380px !important;
                 margin: 0 auto;
             }
         }
@@ -372,8 +379,8 @@
                     <img src="images/bio.jpg" alt="Pamela Smith Portrait">
                 </div>
                 <div class="bio-text">
-                    <p>Pamela Smith is a Dublin-based writer who transforms the ordinary into highly compressed fiction. Her work explores the quiet complexities of inner worlds, disorders, and transformation.</p>
-                    <p>When she isn’t writing, she can be found in local cafés sipping a cappuccino, enjoying a cinnamon roll, and getting lost in her thoughts. </p>
+                    <p>Pamela Smith is a Dublin based writer who transforms the ordinary into highly compressed fiction. Her work explores the quiet complexities of inner worlds, disorders, and transformation.</p>
+                    <p>When she isn’t writing, she can be found in local cafés sipping a cappuccino, enjoying a cinnamon roll, and getting lost in her thoughts.</p>
                     
                     <span class="social-block">
                         <span>Twitter: <a href="https://twitter.com/Smith9374" target="_blank">@Smith9374</a></span>
@@ -400,7 +407,7 @@
                 </div>
                 <div class="work-text">
                     <div class="work-title">Papanca</div>
-                    <div class="work-meta">Tint Journal — Issue Spring '26</div>
+                    <div class="work-meta">Tint Journal Issue Spring '26</div>
                     <p>A midnight cleaning ritual under heavy bleach fumes is interrupted by a sharp tap at the window, letting a silent intruder into a breaking inner world.</p>
                     <a href="https://tintjournal.com/flash-fiction/papanca" target="_blank" class="read-link">Read at Tint Journal</a>
                 </div>
@@ -413,7 +420,7 @@
                 </div>
                 <div class="work-text">
                     <div class="work-title">Six Seconds Taught Me Math</div>
-                    <div class="work-meta">The Blood Pudding — Issue #20, May '26</div>
+                    <div class="work-meta">The Blood Pudding Issue #20, May '26</div>
                     <p>A tragic memory of a sister choking sets off a compulsive, tightly controlled earring ritual, where survival is measured in counts of six.</p>
                     <a href="https://thebloodpudding.com/fiction/flash-fiction/six-seconds-taught-me-math/" target="_blank" class="read-link">Read at The Blood Pudding</a>
                 </div>
@@ -426,11 +433,38 @@
                 </div>
                 <div class="work-text">
                     <div class="work-title">Static Noise</div>
-                    <div class="work-meta">Tap into Poetry - Edition 25, May '26</div>
-                    <p>A closer look at mental interference and internal noise, following that thin, shaky line between chaos and trying to stay clear-headed.</p>
+                    <div class="work-meta">Tap into Poetry Edition 25, May '26</div>
+                    <p>A closer look at mental interference and internal noise, following that thin, shaky line between chaos and trying to stay clear headed.</p>
                     <a href="https://tapintopoetry.wordpress.com/2026/05/20/tap-into-poetry-25/#static-noise-by-pamela-smith" target="_blank" class="read-link">Read at Tap into Poetry</a>
                 </div>
             </div>
+
+            <!-- Work 4: The Anthill -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/anthill.png" alt="The Anthill representation">
+                </div>
+                <div class="work-text">
+                    <div class="work-title">The Anthill</div>
+                    <div class="work-meta">50 Word Stories Vine Leaves Press (Story No. 2146)</div>
+                    <p>A therapy session shifts when a patient presents a box of soil and ants aiming not to be the ant, but the structure holding it together.</p>
+                    <a href="pdfs/anthill.pdf" target="_blank" class="read-link">Read PDF ↗</a>
+                </div>
+            </div>
+
+            <!-- Work 5: Crisco -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/crisco.png" alt="Crisco representation">
+                </div>
+                <div class="work-text">
+                    <div class="work-title">Crisco</div>
+                    <div class="work-meta">50 Word Stories Vine Leaves Press (Story No. 2138)</div>
+                    <p>A sudden grief mixes with a mundane weather report and a locked back, leaving a moment frozen on the floor.</p>
+                    <a href="pdfs/crisco.pdf" target="_blank" class="read-link">Read PDF ↗</a>
+                </div>
+            </div>
+
         </section>
 
         <section class="newsletter-container">
@@ -439,7 +473,7 @@
             
             <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="6393e777-2759-42ce-8d18-0aec7cdde0f0">
-                <input type="hidden" name="subject" value="New Subscriber Alert - PamelaxSmith.github.io">
+                <input type="hidden" name="subject" value="New Subscriber Alert PamelaxSmith.github.io">
                 <input type="hidden" name="message" value="A new reader has signed up for your mailing list.">
                 <input type="hidden" name="redirect" value="https://pamelaxsmith.github.io/">
                 <input type="checkbox" name="botcheck" style="display: none;">
